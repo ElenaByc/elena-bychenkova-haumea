@@ -85,6 +85,7 @@ a {
 
 section {
     padding: 20px 5%;
+    margin-bottom: 10px;
 }
 
 /* -------------- Header -------------- */
@@ -178,3 +179,41 @@ section {
 
 
 /* -------------- Footer -------------- */
+
+.footer {
+    padding: 15px 5%;
+    display: flex;
+    column-gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-gray-l);
+}
+
+.footer__contacts-list {
+    display: flex;
+    list-style: none;
+}
+
+.icon {
+    background-size: 50px auto;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon:hover {
+    filter: invert(13%) sepia(13%) saturate(7280%) hue-rotate(195deg) brightness(94%) contrast(99%);
+}
+
+.linkedin {
+    background-image: url(../assets/icons/linkedin-icon2.svg);
+}
+
+.github {
+    background-image: url(../assets/icons/github-icon.svg);
+}
+
+.telegram {
+    background-image: url(../assets/icons/telegram-icon.svg);
+}
