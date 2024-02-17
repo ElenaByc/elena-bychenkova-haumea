@@ -28,12 +28,19 @@
     font-weight: 700;
 }
 
+@font-face {
+    font-family: 'KaushanScript';
+    src: url("../assets/fonts/KaushanScript-Regular.ttf");
+    font-weight: 400;
+}
+
 :root {
     --color-white: #ffffff;
     --color-light: #EEEEEE;
     --color-gray-l: #E0E0E0;
     --color-gray: #CCCCCC;
-    --color-blue: #0C2850;
+    --color-blue: #27446E;
+    /*--color-blue: #0C2850; */
     --color-dark: #292929;
     --color-black: #000000;
 }
@@ -64,8 +71,9 @@ body {
 
 h1 {
     font-family: 'The Nautigal';
-    font-size: 80px;
-    line-height: 90px;
+    font-family: 'KaushanScript';
+    font-size: 60px;
+    line-height: 70px;
     text-align: center;
     color: var(--color-blue);
 }
@@ -80,6 +88,7 @@ h2 {
 }
 
 a {
+    text-decoration: none;
     color: unset;
 }
 
@@ -91,11 +100,15 @@ section {
 /* -------------- Header -------------- */
 
 .header {
-    padding: 30px 5%;
+    padding: 15px 5%;
+}
+
+.header__title {
     display: flex;
     column-gap: 50px;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .header__avatar {
@@ -103,6 +116,26 @@ section {
     height: 170px;
     border-radius: 25%;
     box-shadow: 0px 0px 5px 1px var(--color-gray);
+}
+
+.header__nav-list {
+    display: flex;
+    justify-content: center;
+    column-gap: 35px;
+
+    list-style: none;
+    padding: 20px 10px;
+}
+
+.nav-link {
+    padding: 5px 10px;
+    border-radius: 15%;
+    box-shadow: 0px 0px 5px 1px var(--color-gray);
+}
+
+.nav-link:hover {
+    color: var(--color-blue);
+    box-shadow: 0px 0px 5px 1px var(--color-blue);
 }
 
 /* -------------- About -------------- */
@@ -203,7 +236,8 @@ section {
 }
 
 .icon:hover {
-    filter: invert(13%) sepia(13%) saturate(7280%) hue-rotate(195deg) brightness(94%) contrast(99%);
+    /* filter: invert(13%) sepia(13%) saturate(7280%) hue-rotate(195deg) brightness(94%) contrast(99%); */
+    filter: invert(21%) sepia(10%) saturate(3890%) hue-rotate(178deg) brightness(99%) contrast(85%);
 }
 
 .linkedin {
