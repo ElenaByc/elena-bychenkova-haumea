@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../assets/fonts/SourceSansPro-Regular.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro Bold';
+    src: url('../assets/fonts/SourceSansPro-SemiBold.ttf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'The Nautigal';
+    src: url('../assets/fonts/TheNautigal-Bold.ttf');
+    font-weight: 700;
+}
+
+:root {
+    --color-white: #ffffff;
+    --color-light: #EEEEEE;
+    --color-gray: #CCCCCC;
+    --color-blue: #0C2850;
+    --color-dark: #292929;
+    --color-black: #000000;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+.page-wrapper {
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+h1 {
+    font-family: 'The Nautigal';
+    font-size: 80px;
+    line-height: 90px;
+    text-align: center;
+    color: var(--color-blue);
+}
+
+h2 {
+    font-family: 'Source Sans Pro Bold';
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 18px;
+    color: var(--color-blue);
+}
+
+a {
+    color: unset;
+}
+
+section {
+    padding: 20px;
+}
+
+/* -------------- Header -------------- */
+
+.header {
+    padding: 30px 5%;
+    display: flex;
+    column-gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__avatar {
+    width: 170px;
+    height: 170px;
+    border-radius: 25%;
+    box-shadow: 0px 0px 5px 1px var(--color-gray);
+}
+
+/* -------------- About -------------- */
+
+
+
+
+/* -------------- Footer -------------- */
