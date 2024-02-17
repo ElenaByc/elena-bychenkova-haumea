@@ -76,6 +76,7 @@ h1 {
     line-height: 90px;
     text-align: center;
     color: var(--color-blue);
+    margin: 0;
 }
 
 h2 {
@@ -85,6 +86,7 @@ h2 {
     font-size: 18px;
     line-height: 24px;
     color: var(--color-blue);
+    margin: 0;
 }
 
 a {
@@ -100,7 +102,8 @@ section {
 /* -------------- Header -------------- */
 
 .header {
-    padding: 15px 5%;
+    padding: 30px 5%;
+    position: relative;
 }
 
 .header__title {
@@ -108,7 +111,7 @@ section {
     column-gap: 50px;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .header__avatar {
@@ -136,6 +139,19 @@ section {
 .nav-link:hover {
     color: var(--color-blue);
     box-shadow: 0px 0px 5px 1px var(--color-blue);
+}
+
+
+.header__burger-btn {
+    position: absolute;
+    display: none;
+}
+
+.menu-shadow {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 /* -------------- About -------------- */
@@ -216,7 +232,6 @@ section {
 .footer {
     padding: 15px 5%;
     display: flex;
-    column-gap: 50px;
     align-items: center;
     justify-content: space-between;
     background-color: var(--color-gray-l);
@@ -224,6 +239,7 @@ section {
 
 .footer__contacts-list {
     display: flex;
+    align-items: center;
     list-style: none;
 }
 
@@ -254,4 +270,141 @@ section {
 
 .telegram {
     background-image: url(../assets/icons/telegram-icon.svg);
+}
+
+
+/* ---------- Styles for smaller screens ----------*/
+
+/* ---------- max-width: 768px ---------- */
+
+@media only screen and (max-width: 768px) {
+
+    .header {
+        padding: 15px 5%;
+    }
+
+    .header__title {
+        column-gap: 30px;
+    }
+
+}
+
+/* ---------- max-width: 652px ---------- */
+
+@media only screen and (max-width: 652px) {
+
+    .header__title {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    section,
+    .header,
+    .footer {
+        padding: 10px 15px;
+    }
+
+    .experience__timeline li {
+        column-gap: 15px;
+    }
+
+}
+
+/* ---------- max-width: 580px ---------- */
+
+@media only screen and (max-width: 580px) {
+
+    .header__nav-list {
+        column-gap: 20px;
+    }
+
+}
+
+/* ---------- max-width: 480px ---------- */
+
+@media only screen and (max-width: 480px) {
+
+    h1 {
+        font-size: 60px;
+        line-height: 68px;
+    }
+
+    .header__burger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 5px;
+        width: 35px;
+        height: 30px;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .header__burger-btn .line {
+        width: 100%;
+        height: 3px;
+        border-radius: 5px;
+        background-color: var(--color-dark);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .header__burger-btn:hover .line {
+        background-color: var(--color-blue);
+    }
+
+    .header__nav-list {
+        position: fixed;
+        padding: 20px;
+        top: 0;
+        left: calc(100% + 10px);
+        width: 165px;
+        height: 250px;
+        overflow-x: hidden;
+        font-style: normal;
+        flex-direction: column;
+        row-gap: 10px;
+        border-radius: 10px;
+        transition: all 0.5s ease-in;
+    }
+
+    .footer {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+}
+
+
+/* ---------- max-width: 380px ---------- */
+
+@media only screen and (max-width: 380px) {
+
+    h1 {
+        font-size: 50px;
+        line-height: 56px;
+    }
+
+    .experience__timeline {
+        padding: 0;
+    }
+
+    .experience__timeline::before {
+        background: transparent;
+    }
+
+    .experience__timeline li {
+        flex-direction: column;
+    }
+
+    .timeline-period {
+        font-size: 16px;
+        flex: 0 0 20px;
+        text-align: left;
+    }
+
+    .timeline-info::after {
+        border-right: 11px solid transparent;
+    }
+
 }
