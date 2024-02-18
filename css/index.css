@@ -237,6 +237,11 @@ section {
     background-color: var(--color-gray-l);
 }
 
+.footer__copyright {
+    font-family: 'Source Sans Pro Italic';
+    font-size: 18px;
+}
+
 .footer__contacts-list {
     display: flex;
     align-items: center;
