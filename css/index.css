@@ -297,6 +297,63 @@ section {
     color: var(--color-blue);
 }
 
+/* -------------- Messages -------------- */
+
+#messages {
+    display: none;
+}
+
+.messages__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 100%;
+    padding-top: 20px;
+    list-style: none;
+}
+
+.messages__list li {
+    position: relative;
+    width: 100%;
+    border: solid 1px var(--color-gray);
+    padding: 10px;
+}
+
+.messages__list li a {
+    color: var(--color-blue);
+    text-decoration: underline;
+}
+
+.messages__list .message-text {
+    font-family: 'Source Sans Pro Italic';
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 100px;
+    margin-top: 10px;
+    width: calc(100% - 140px);
+    padding: 10px;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-image: url('../assets/icons/cross.svg');
+    background-size: 20px auto;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-dark);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: .3s;
+    filter: invert(14%) sepia(0%) saturate(1%) hue-rotate(346deg) brightness(95%) contrast(92%);
+}
+
+.remove-btn:hover {
+    filter: invert(21%) sepia(10%) saturate(3890%) hue-rotate(178deg) brightness(99%) contrast(85%);
+}
+
 
 /* -------------- Footer -------------- */
 
@@ -394,8 +451,9 @@ section {
         column-gap: 20px;
     }
 
-    .message__form {
-        width: 100%;
+    .messages__list .message-text {
+        margin-left: 50px;
+        width: calc(100% - 90px);
     }
 
 }

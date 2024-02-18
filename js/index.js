@@ -15,4 +15,44 @@ mySkillsArray.forEach(skill => {
   listItem = document.createElement('li');
   listItem.innerText = skill;
   skillsListElement.appendChild(listItem);
-})
+});
+
+// handle message form submit
+const messageForm = document.querySelector('.message__form');
+messageForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const usersName = event.target.name.value;
+  const usersEmail = event.target.email.value;
+  const messageText = event.target.message.value;
+  const messagesSection = document.querySelector('#messages');
+  const messagesList = messagesSection.querySelector('ul');
+
+  if (getComputedStyle(messagesSection, null).display === 'none' || messagesSection.style.display === 'none') {
+    messagesSection.style.display = 'block';
+  }
+
+  const listItem = document.createElement('li');
+  // const messageDiv = document.createElement('div');
+  const mailto = document.createElement('div');
+  mailto.innerHTML = `From: <a href="mailto${usersEmail}">${usersName}</a>`;
+  listItem.appendChild(mailto);
+  const messageBody = document.createElement('div');
+  messageBody.innerText = messageText;
+  messageBody.classList.add('message-text');
+  listItem.appendChild(messageBody);
+  // listItem.appendChild(messageDiv);
+  const deleteBtn = document.createElement('div');
+  deleteBtn.classList.add('remove-btn');
+  deleteBtn.title = 'Delete this message';
+  deleteBtn.addEventListener('click', (event) => {
+    const entry = event.target.parentNode;
+    if (messagesList.children.length === 1) {
+      messagesSection.style.display = 'none'
+    }
+    entry.remove();
+
+  });
+  listItem.appendChild(deleteBtn);
+  messagesList.appendChild(listItem);
+  event.target.reset()
+});
