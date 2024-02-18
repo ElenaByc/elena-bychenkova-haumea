@@ -243,6 +243,61 @@ section {
 }
 
 
+/* -------------- Message Form -------------- */
+
+.message__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 500px;
+    padding: 10px 0;
+}
+
+.form__field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.form__field input,
+.form__field textarea {
+    width: 100%;
+    background-color: var(--color-white);
+    box-shadow: inset 0px 0px 3px var(--color-gray-l), inset 0px 2px 3px var(--color-gray);
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
+
+.form__field input:focus,
+.form__field textarea:focus {
+    outline-color: var(--color-gray);
+}
+
+.form__field label {
+    font-family: 'Source Sans Pro Italic';
+    font-size: 14px;
+}
+
+.button {
+    font-family: 'Source Sans Pro Bold';
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--color-gray);
+    box-shadow: 0px 0px 3px 1px var(--color-gray-l);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.button:hover {
+    background-color: var(--color-gray-l);
+    box-shadow: 0px 0px 3px 1px var(--color-blue);
+    color: var(--color-blue);
+}
+
+
 /* -------------- Footer -------------- */
 
 .footer {
@@ -337,6 +392,10 @@ section {
 
     .header__nav-list {
         column-gap: 20px;
+    }
+
+    .message__form {
+        width: 100%;
     }
 
 }
