@@ -56,3 +56,54 @@ messageForm.addEventListener('submit', (event) => {
   messagesList.appendChild(listItem);
   event.target.reset()
 });
+
+// get repositories from github
+const requestUrl = 'https://api.github.com/users/ElenaByc/repos?per_page=100';
+fetch(requestUrl).then((response) => {
+  if (response.ok) {
+    return response.json();
+  }
+  throw new Error('Something went wrong');
+})
+  .then((responseJson) => handleResponse(responseJson))
+  .catch((error) => handleError(error));
+
+const handleResponse = (repos) => {
+  const projectSection = document.querySelector('#projects');
+  const projectList = projectSection.querySelector('.projects__list');
+  let projectElement;
+  // there are 51 repos total, I decided to show only recent repos
+  lastYearFirstDay = Date.parse(`${currentYear - 1}-01-01`);
+  myLastProjects = repos.filter(repo => Date.parse(repo.created_at.substring(0, 10)) > lastYearFirstDay
+    && !repo.name.startsWith('hb')      // exclude my Hackbright Academy projects
+    && !repo.name.includes('codewars-') // exclude codewars problems
+    && !repo.name.includes('leetcode')  // exclude leetcode problem
+    && !repo.fork);                      // exclude repos I forked
+  console.log(myLastProjects);
+  // sort by created date
+  myLastProjects.sort((a, b) => Date.parse(b.created_at.substring(0, 10)) - Date.parse(a.created_at.substring(0, 10)));
+
+  console.log(myLastProjects);
+
+
+  myLastProjects.forEach((repo) => {
+    projectElement = createProjectElement(repo);
+    projectList.appendChild(projectElement);
+  })
+}
+
+const createProjectElement = ({ name, html_url, created_at }) => {
+  const liElement = document.createElement('li');
+  liElement.classList.add('projects__list-item');
+  liElement.innerHTML = `<a href="${html_url}" target="_blank">${name}</a> created at ${created_at.substring(0, 10)}`;
+  return liElement;
+}
+
+const handleError = (error) => {
+  // add error message to the Projects section
+  console.log(error);
+  const errorElement = document.createElement('p');
+  errorElement.innerText = 'ERROR: No response from GitHub API';
+  const projectSection = document.querySelector('#projects');
+  projectSection.appendChild(errorElement);
+}
