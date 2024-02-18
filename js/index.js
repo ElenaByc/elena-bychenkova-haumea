@@ -6,6 +6,7 @@ copyrightDiv.classList.add('footer__copyright');
 copyrightDiv.innerHTML = `&copy;&nbsp;Elena&nbsp;Bychenkova&nbsp;${currentYear}`;
 footer.prepend(copyrightDiv);
 
+
 // add skills from the array to the UL element in the Skills section
 const mySkillsArray = ['Java', 'Python', 'JavaScript', 'HTML', 'CSS', 'Figma', 'Bootstrap', 'SpringBoot', 'Flask', 'PostgreSQL'];
 const skillsSection = document.querySelector('#skills');
@@ -16,6 +17,7 @@ mySkillsArray.forEach(skill => {
   listItem.innerText = skill;
   skillsListElement.appendChild(listItem);
 });
+
 
 // handle message form submit
 const messageForm = document.querySelector('.message__form');
@@ -56,6 +58,7 @@ messageForm.addEventListener('submit', (event) => {
   messagesList.appendChild(listItem);
   event.target.reset()
 });
+
 
 // get repositories from github
 const requestUrl = 'https://api.github.com/users/ElenaByc/repos?per_page=100';
@@ -107,3 +110,22 @@ const handleError = (error) => {
   const projectSection = document.querySelector('#projects');
   projectSection.appendChild(errorElement);
 }
+
+
+// burger menu for small screens <= 480px
+const burgerBtn = document.querySelector('.header__burger-btn');
+const navList = document.querySelector('.header__nav-list');
+const navLinks = document.querySelectorAll('.nav-link');
+const menuShadow = document.querySelector('.menu-shadow');
+
+const toggleMenu = () => {
+  if (window.screen.width < 481) {
+    burgerBtn.classList.toggle('active');
+    navList.classList.toggle('active');
+    menuShadow.classList.toggle('active');
+  }
+};
+
+burgerBtn.addEventListener('click', toggleMenu);
+menuShadow.addEventListener('click', toggleMenu);
+navLinks.forEach(link => link.addEventListener('click', toggleMenu));
