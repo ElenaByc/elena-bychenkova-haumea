@@ -34,15 +34,13 @@ messageForm.addEventListener('submit', (event) => {
   }
 
   const listItem = document.createElement('li');
-  // const messageDiv = document.createElement('div');
   const mailto = document.createElement('div');
-  mailto.innerHTML = `From: <a href="mailto${usersEmail}">${usersName}</a>`;
+  mailto.innerHTML = `From: <a href="mailto:${usersEmail}">${usersName}</a>`;
   listItem.appendChild(mailto);
   const messageBody = document.createElement('div');
   messageBody.innerText = messageText;
   messageBody.classList.add('message-text');
   listItem.appendChild(messageBody);
-  // listItem.appendChild(messageDiv);
   const deleteBtn = document.createElement('div');
   deleteBtn.classList.add('remove-btn');
   deleteBtn.title = 'Delete this message';
