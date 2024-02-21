@@ -79,7 +79,7 @@ const handleResponse = (repos) => {
     && !repo.name.startsWith('hb')      // exclude my Hackbright Academy projects
     && !repo.name.includes('codewars-') // exclude codewars problems
     && !repo.name.includes('leetcode')  // exclude leetcode problem
-    && !repo.fork);                      // exclude repos I forked
+    && !repo.fork);                     // exclude repos I forked
   console.log(myLastProjects);
   // sort by created date
   myLastProjects.sort((a, b) => Date.parse(b.created_at.substring(0, 10)) - Date.parse(a.created_at.substring(0, 10)));
